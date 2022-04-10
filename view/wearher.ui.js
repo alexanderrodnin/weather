@@ -1,5 +1,9 @@
 import dedent from 'dedent-js'
 
+const printWeather = (data) => {
+    console.log(data)
+}
+
 const printHelp = () => {
     console.log(dedent(
         `-c [set the city]
@@ -8,4 +12,4 @@ const printHelp = () => {
     ))
 }
 
-export {printHelp}
+export { printHelp, printWeather }

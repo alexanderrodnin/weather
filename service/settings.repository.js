@@ -18,7 +18,7 @@ const readSettings = () => {
     let res = {}
 
     if (isStorageExists()) {
-        res = fs.readFileSync(storagePath).toJSON()
+        res = JSON.parse(fs.readFileSync(storagePath).toString())
     }
 
     return res
@@ -28,4 +28,4 @@ const isStorageExists = () => {
     return fs.existsSync(storagePath)
 }
 
-writeSettings()
+export {writeSettings, readSettings}

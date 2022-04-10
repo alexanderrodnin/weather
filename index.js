@@ -1,13 +1,23 @@
-import {printHelp} from "./view/wearher.ui.js"
+import {printHelp, printWeather} from "./view/wearher.ui.js"
 import {parseArgs} from "./service/cli.parse.service.js"
+import {readSettings, writeSettings} from './service/settings.repository.js'
+import {getWeather} from "./service/weather.provider.js";
 
-const initClI = () => {
+const initClI = async () => {
     const parsed = parseArgs(process.argv)
     if (parsed.help) {
         printHelp()
-    } else {
-        console.log(parsed)
     }
+    if (parsed.key) {
+        writeSettings("key", parsed.key)
+    }
+    if (parsed.city) {
+        writeSettings("city", parsed.city)
+    }
+    const settings = readSettings();
+    const data = await getWeather(settings);
+    printWeather(data)
+
 }
 
-initClI();
+await initClI();
