@@ -3,7 +3,9 @@
   "version": "0.0.1",
   "description": "Node test app",
   "main": "index.js",
+  "type": "module",
   "scripts": {
+    "start": "node index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -22,6 +24,8 @@
   },
   "homepage": "https://github.com/alexanderrodnin/weather#readme",
   "dependencies": {
-    "axios": "^0.26.1"
+    "axios": "0.26.1",
+    "chalk": "5.0.1",
+    "dedent-js": "1.0.1"
   }
 }
